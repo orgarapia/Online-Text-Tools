@@ -342,7 +342,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6 mt-auto">
         <div class="container mx-auto px-4 text-center text-sm">
-            <p data-lang-key="footer-text">&copy; 2024 Tool Teks Online. Semua Hak Dilindungi.</p>
+            <p>&copy; <span id="current-year"></span> Tool Teks Online. Semua Hak Dilindungi.</p>
         </div>
     </footer>
 
@@ -457,7 +457,7 @@
                 'faq2-a': 'No. The text you enter is only processed in your browser and is never stored on any server. Your privacy is guaranteed.',
                 'faq3-q': 'How does this tool work?',
                 'faq3-a': 'This tool uses JavaScript to count words and characters in real-time as you type. It does not require an internet connection to work.',
-                'footer-text': '© 2024 Online Text Tools. All Rights Reserved.',
+                'footer-text': '© 2024 Tool Teks Online. Semua Hak Dilindungi.',
             },
         };
 
@@ -606,6 +606,9 @@
             const uniqueLines = [...new Set(lines)];
             utilityTextInput.value = uniqueLines.join('\n');
         });
+
+        // Update tahun saat ini
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
