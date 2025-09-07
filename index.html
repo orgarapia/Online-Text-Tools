@@ -485,6 +485,13 @@
             if (guideElement) {
                 guideElement.classList.remove('hidden');
             }
+            
+            // Clear all textareas when a new page is shown
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.value = '';
+                // Trigger an input event to reset the counters
+                textarea.dispatchEvent(new Event('input'));
+            });
         };
 
         // Automatic language detection on page load
