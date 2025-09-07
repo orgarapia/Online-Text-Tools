@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Judul Halaman -->
+    <title>Penghitung Kata & Karakter Online Gratis - Alat Teks Lengkap</title>
+    <!-- SEO: Meta Deskripsi -->
+    <meta name="description" content="Gunakan alat teks online gratis kami. Hitung kata, karakter, dan kalimat, atau gunakan alat konversi, pembalik, dan pengacak kata. Mudah, cepat, dan akurat.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Schema Markup untuk SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://penghitungteks.com/",
+      "name": "Penghitung Kata & Karakter Online",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://penghitungteks.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "QAPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah alat ini gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, alat ini sepenuhnya gratis untuk digunakan. Anda bisa menggunakannya tanpa batas untuk kebutuhan pribadi atau profesional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah teks saya disimpan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Teks yang Anda masukkan hanya diproses di browser Anda dan tidak pernah disimpan di server mana pun. Privasi Anda terjamin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bagaimana cara kerja alat ini?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alat ini menggunakan JavaScript untuk menghitung kata dan karakter secara real-time saat Anda mengetik. Ini tidak memerlukan koneksi internet untuk bekerja."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #334155;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container-wrapper {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .container-wrapper {
+                padding: 2rem;
+            }
+        }
+        .faq-item summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            transition: background-color 0.2s;
+            font-weight: 600;
+        }
+        .faq-item summary:hover {
+            background-color: #f1f5f9;
+        }
+        .faq-item[open] summary {
+            background-color: #e2e8f0;
+        }
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+        .faq-item summary::after {
+            content: "+";
+            float: right;
+            transition: transform 0.2s;
+        }
+        .faq-item[open] summary::after {
+            transform: rotate(0deg);
+        }
+        .stat-box {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .convert-button, .utility-button {
+            @apply py-3 px-6 rounded-lg text-base font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl border-2;
+        }
+        #uppercase-btn, #reverse-btn {
+            @apply bg-white text-gray-800 border-blue-500 hover:bg-blue-500 hover:text-white;
+        }
+        #lowercase-btn, #shuffle-btn {
+            @apply bg-white text-gray-800 border-green-500 hover:bg-green-500 hover:text-white;
+        }
+        #titlecase-btn, #remove-duplicates-btn {
+            @apply bg-white text-gray-800 border-purple-500 hover:bg-purple-500 hover:text-white;
+        }
+        #copy-btn {
+            @apply bg-white text-gray-800 border-gray-500 hover:bg-gray-500 hover:text-white;
+        }
+        .stat-box svg {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.5rem;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-xl sm:text-2xl font-bold text-gray-800" data-lang-key="header-title">Tool Teks Online</a>
+            <div class="flex items-center space-x-4">
+                <div class="hidden sm:flex space-x-4 items-center">
+                    <button class="nav-btn font-semibold text-gray-600 hover:text-gray-900 focus:outline-none" data-target="word-counter-page" data-lang-key="nav-word-counter">Penghitung Kata</button>
+                    <span class="text-gray-400">|</span>
+                    <button class="nav-btn font-semibold text-gray-600 hover:text-gray-900 focus:outline-none" data-target="text-converter-page" data-lang-key="nav-text-converter">Konversi Teks</button>
+                    <span class="text-gray-400">|</span>
+                    <button class="nav-btn font-semibold text-gray-600 hover:text-gray-900 focus:outline-none" data-target="text-utility-page" data-lang-key="nav-text-utility">Utilitas Teks</button>
+                </div>
+                <!-- Toggle Bahasa -->
+                <div id="lang-toggle" class="flex items-center space-x-2 bg-gray-100 rounded-md p-1">
+                    <button id="lang-id" class="px-3 py-1 rounded-md font-bold text-sm text-gray-800 bg-white shadow-sm">ID</button>
+                    <button id="lang-en" class="px-3 py-1 rounded-md font-bold text-sm text-gray-500 hover:text-gray-800">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-wrapper">
+        <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full max-w-4xl">
+            <!-- Halaman: Penghitung Kata -->
+            <section id="word-counter-page">
+                <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6" data-lang-key="title">Penghitung Kata & Karakter</h1>
+                <!-- SEO: Konten Deskriptif -->
+                <p class="text-center italic text-base text-gray-600 mb-8" data-lang-key="tool-description">
+                    Alat gratis ini membantu Anda menghitung jumlah kata, karakter, spasi, dan paragraf dalam teks Anda. Cukup masukkan teks Anda di bawah, dan lihat hasilnya secara instan.
+                </p>
+
+                <textarea
+                    id="text-input"
+                    class="w-full h-48 p-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                    placeholder="Masukkan teks di sini..."
+                ></textarea>
+
+                <!-- Tampilan Statistik -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                    <!-- Word Count -->
+                    <div class="p-4 bg-blue-50 rounded-xl shadow-inner text-center stat-box flex flex-col items-center">
+                        <svg class="text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <p class="text-lg font-medium text-gray-700 mt-2" data-lang-key="word-label">Jumlah Kata:</p>
+                        <span id="word-count" class="text-4xl font-extrabold text-blue-600">0</span>
+                    </div>
+                    <!-- Character Count -->
+                    <div class="p-4 bg-green-50 rounded-xl shadow-inner text-center stat-box flex flex-col items-center">
+                        <svg class="text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                        <p class="text-lg font-medium text-gray-700 mt-2" data-lang-key="char-label">Jumlah Karakter:</p>
+                        <span id="character-count" class="text-4xl font-extrabold text-green-600">0</span>
+                        <p class="text-xs text-gray-500 mt-1" data-lang-key="char-note">termasuk spasi dan tanda baca</p>
+                    </div>
+                    <!-- Sentence Count -->
+                    <div class="p-4 bg-red-50 rounded-xl shadow-inner text-center stat-box flex flex-col items-center">
+                        <svg class="text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <p class="text-lg font-medium text-gray-700 mt-2" data-lang-key="sentence-label">Jumlah Kalimat:</p>
+                        <span id="sentence-count" class="text-4xl font-extrabold text-red-600">0</span>
+                    </div>
+                    <!-- Paragraph Count -->
+                    <div class="p-4 bg-yellow-50 rounded-xl shadow-inner text-center stat-box flex flex-col items-center">
+                        <svg class="text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <p class="text-lg font-medium text-gray-700 mt-2" data-lang-key="paragraph-label">Jumlah Paragraf:</p>
+                        <span id="paragraph-count" class="text-4xl font-extrabold text-yellow-600">0</span>
+                    </div>
+                    <!-- Space Count -->
+                    <div class="p-4 bg-purple-50 rounded-xl shadow-inner text-center stat-box flex flex-col items-center">
+                        <svg class="text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                        </svg>
+                        <p class="text-lg font-medium text-gray-700 mt-2" data-lang-key="space-label">Jumlah Spasi:</p>
+                        <span id="space-count" class="text-4xl font-extrabold text-purple-600">0</span>
+                    </div>
+                     <!-- Read Time -->
+                     <div class="p-4 bg-gray-200 rounded-xl shadow-inner text-center stat-box flex flex-col items-center">
+                        <svg class="text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-medium text-gray-700 mt-2" data-lang-key="read-time-label">Waktu Baca:</p>
+                        <span id="read-time" class="text-4xl font-extrabold text-gray-800">0m</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Halaman: Alat Konversi Teks -->
+            <section id="text-converter-page" class="hidden">
+                <h2 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6" data-lang-key="conversion-title">Alat Konversi Teks</h2>
+                <!-- SEO: Konten Deskriptif -->
+                <p class="text-center italic text-base text-gray-600 mb-8" data-lang-key="conversion-description">
+                    Ubah teks Anda dengan cepat menjadi huruf kapital, huruf kecil, atau format judul. Salin teks yang telah diubah dengan satu klik.
+                </p>
+                
+
+                <textarea
+                    id="converter-text-input"
+                    class="w-full h-48 p-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                    placeholder="Masukkan teks di sini..."
+                ></textarea>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                    <button id="uppercase-btn" class="convert-button bg-gradient-to-br from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800">
+                        <span data-lang-key="btn-uppercase">Huruf Kapital</span>
+                    </button>
+                    <button id="lowercase-btn" class="convert-button bg-gradient-to-br from-green-500 to-green-700 text-white hover:from-green-600 hover:to-green-800">
+                        <span data-lang-key="btn-lowercase">Huruf Kecil</span>
+                    </button>
+                    <button id="titlecase-btn" class="convert-button bg-gradient-to-br from-purple-500 to-purple-700 text-white hover:from-purple-600 hover:to-purple-800">
+                        <span data-lang-key="btn-titlecase">Huruf Awal Kapital</span>
+                    </button>
+                    <button id="copy-btn" class="convert-button bg-gradient-to-br from-gray-500 to-gray-700 text-white hover:from-gray-600 hover:to-gray-800">
+                        <span data-lang-key="btn-copy">Salin Teks</span>
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Halaman: Utilitas Teks -->
+            <section id="text-utility-page" class="hidden">
+                <h2 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6" data-lang-key="utility-title">Utilitas Teks</h2>
+                <p class="text-center italic text-base text-gray-600 mb-8" data-lang-key="utility-description">
+                    Gunakan alat praktis ini untuk membalikkan teks, mengacak kata, atau menghapus baris duplikat.
+                </p>
+                <textarea
+                    id="utility-text-input"
+                    class="w-full h-48 p-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus-ring-blue-500 transition-all duration-300"
+                    placeholder="Masukkan teks di sini..."
+                ></textarea>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                    <button id="reverse-btn" class="utility-button bg-gradient-to-br from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800">
+                        <span data-lang-key="btn-reverse">Balik Teks</span>
+                    </button>
+                    <button id="shuffle-btn" class="utility-button bg-gradient-to-br from-green-500 to-green-700 text-white hover:from-green-600 hover:to-green-800">
+                        <span data-lang-key="btn-shuffle">Acak Kata</span>
+                    </button>
+                    <button id="remove-duplicates-btn" class="utility-button bg-gradient-to-br from-purple-500 to-purple-700 text-white hover:from-purple-600 hover:to-purple-800">
+                        <span data-lang-key="btn-remove-duplicates">Hapus Baris Duplikat</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="mt-12">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-6" data-lang-key="faq-heading">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+                <div class="space-y-4">
+                    <details class="faq-item bg-gray-100 rounded-lg shadow-sm">
+                        <summary data-lang-key="faq1-q">Apakah alat ini gratis?</summary>
+                        <p class="p-4 text-gray-600" data-lang-key="faq1-a">Ya, alat ini sepenuhnya gratis untuk digunakan. Anda bisa menggunakannya tanpa batas untuk kebutuhan pribadi atau profesional.</p>
+                    </details>
+                    <details class="faq-item bg-gray-100 rounded-lg shadow-sm">
+                        <summary data-lang-key="faq2-q">Apakah teks saya disimpan?</summary>
+                        <p class="p-4 text-gray-600" data-lang-key="faq2-a">Tidak. Teks yang Anda masukkan hanya diproses di browser Anda dan tidak pernah disimpan di server mana pun. Privasi Anda terjamin.</p>
+                    </details>
+                    <details class="faq-item bg-gray-100 rounded-lg shadow-sm">
+                        <summary data-lang-key="faq3-q">Bagaimana cara kerja alat ini?</summary>
+                        <p class="p-4 text-gray-600" data-lang-key="faq3-a">Alat ini menggunakan JavaScript untuk menghitung kata dan karakter secara real-time saat Anda mengetik. Ini tidak memerlukan koneksi internet untuk bekerja.</p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Cara Menggunakan -->
+            <section class="mt-12">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-6" data-lang-key="guide-heading">Panduan Menggunakan Alat Teks Online</h2>
+                <div id="guide-content" class="space-y-8">
+                    <!-- Guide for Word Counter -->
+                    <div id="guide-word-counter" class="bg-gray-100 rounded-lg shadow-sm p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-lang-key="intro-heading-word-counter">Cara Menggunakan Alat Penghitung Kata & Karakter Online</h3>
+                        <p class="text-gray-600 text-base" data-lang-key="intro-text-word-counter">
+                            Alat <b>penghitung kata online</b> ini dirancang untuk kemudahan dan kecepatan. Dengan alat gratis ini, Anda bisa langsung mengetahui statistik penting dari tulisan Anda.
+                        </p>
+                        <p class="text-gray-600 text-base mt-2" data-lang-key="seo-text-word-counter">
+                            Alat ini sangat berguna untuk memenuhi batasan platform dan memastikan artikel Anda memiliki panjang yang optimal untuk SEO.
+                        </p>
+                    </div>
+                    <!-- Guide for Text Converter -->
+                    <div id="guide-text-converter" class="bg-gray-100 rounded-lg shadow-sm p-6 hidden text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-lang-key="intro-heading-converter">Konversi Teks Mudah dan Cepat</h3>
+                        <p class="text-gray-600 text-base" data-lang-key="intro-text-converter">
+                            Alat <b>konversi teks</b> ini dirancang untuk mengubah format teks Anda dengan cepat dan mudah. Ubah teks menjadi <b>huruf kapital</b>, <b>huruf kecil</b>, atau <b>format judul</b> secara instan.
+                        </p>
+                        <p class="text-gray-600 text-base mt-2" data-lang-key="seo-text-converter">
+                            Dengan fitur konversi yang efisien, Anda bisa menghemat waktu dan meningkatkan produktivitas dalam menulis dan mengelola teks.
+                        </p>
+                    </div>
+                    <!-- Guide for Text Utility -->
+                    <div id="guide-text-utility" class="bg-gray-100 rounded-lg shadow-sm p-6 hidden text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-lang-key="intro-heading-utility">Utilitas Teks untuk Efisiensi</h3>
+                        <p class="text-gray-600 text-base" data-lang-key="intro-text-utility">
+                            Alat <b>utilitas teks</b> ini dirancang untuk menyelesaikan tugas-tugas pengolahan teks yang spesifik dan sering kali rumit. Baik Anda ingin <b>membalikkan teks</b> untuk efek visual, <b>mengacak kata</b> untuk ide kreatif, atau <b>menghapus baris duplikat</b> dari daftar, semua bisa dilakukan dengan cepat dan akurat.
+                        </p>
+                        <p class="text-gray-600 text-base mt-2" data-lang-key="seo-text-utility">
+                            Alat ini sangat berguna bagi siapa pun yang sering bekerja dengan data teks dan daftar. Dengan alat ini, Anda bisa membersihkan dan mengatur data Anda tanpa harus menggunakan perangkat lunak yang kompleks.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p data-lang-key="footer-text">&copy; 2024 Tool Teks Online. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const pages = document.querySelectorAll('section[id$="-page"]');
+        const textInput = document.getElementById('text-input');
+        const converterTextInput = document.getElementById('converter-text-input');
+        const utilityTextInput = document.getElementById('utility-text-input');
+        const wordCountSpan = document.getElementById('word-count');
+        const characterCountSpan = document.getElementById('character-count');
+        const spaceCountSpan = document.getElementById('space-count');
+        const sentenceCountSpan = document.getElementById('sentence-count');
+        const paragraphCountSpan = document.getElementById('paragraph-count');
+        const readTimeSpan = document.getElementById('read-time');
+        
+        const uppercaseBtn = document.getElementById('uppercase-btn');
+        const lowercaseBtn = document.getElementById('lowercase-btn');
+        const titlecaseBtn = document.getElementById('titlecase-btn');
+        const copyBtn = document.getElementById('copy-btn');
+        
+        const reverseBtn = document.getElementById('reverse-btn');
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const removeDuplicatesBtn = document.getElementById('remove-duplicates-btn');
+        
+        const langToggle = document.getElementById('lang-toggle');
+        const langIdBtn = document.getElementById('lang-id');
+        const langEnBtn = document.getElementById('lang-en');
+        
+        const WORDS_PER_MINUTE = 200; // Kecepatan baca rata-rata
+
+        const translations = {
+            'id': {
+                'header-title': 'Tool Teks Online',
+                'nav-word-counter': 'Penghitung Kata',
+                'nav-text-converter': 'Konversi Teks',
+                'nav-text-utility': 'Utilitas Teks',
+                'title': 'Penghitung Kata & Karakter',
+                'tool-description': 'Alat gratis ini membantu Anda menghitung jumlah kata, karakter, spasi, dan paragraf dalam teks Anda. Cukup masukkan teks Anda di bawah, dan lihat hasilnya secara instan.',
+                'intro-heading-word-counter': 'Cara Menggunakan Alat Penghitung Kata & Karakter Online',
+                'intro-text-word-counter': 'Alat <b>penghitung kata online</b> ini dirancang untuk kemudahan dan kecepatan. Dengan alat gratis ini, Anda bisa langsung mengetahui statistik penting dari tulisan Anda.',
+                'seo-text-word-counter': 'Alat ini sangat berguna untuk memenuhi batasan platform dan memastikan artikel Anda memiliki panjang yang optimal untuk SEO.',
+                'word-label': 'Jumlah Kata:',
+                'char-label': 'Jumlah Karakter:',
+                'sentence-label': 'Jumlah Kalimat:',
+                'paragraph-label': 'Jumlah Paragraf:',
+                'space-label': 'Jumlah Spasi:',
+                'read-time-label': 'Waktu Baca:',
+                'placeholder': 'Masukkan teks di sini...',
+                'conversion-title': 'Alat Konversi Teks',
+                'conversion-description': 'Ubah teks Anda dengan cepat menjadi huruf kapital, huruf kecil, atau format judul. Salin teks yang telah diubah dengan satu klik.',
+                'intro-heading-converter': 'Konversi Teks Mudah dan Cepat',
+                'intro-text-converter': 'Alat <b>konversi teks</b> ini dirancang untuk mengubah format teks Anda dengan cepat dan mudah. Ubah teks menjadi <b>huruf kapital</b>, <b>huruf kecil</b>, atau <b>format judul</b> secara instan.',
+                'seo-text-converter': 'Dengan fitur konversi yang efisien, Anda bisa menghemat waktu dan meningkatkan produktivitas dalam menulis dan mengelola teks.',
+                'btn-uppercase': 'Huruf Kapital',
+                'btn-lowercase': 'Huruf Kecil',
+                'btn-titlecase': 'Huruf Awal Kapital',
+                'btn-copy': 'Salin Teks',
+                'utility-title': 'Utilitas Teks',
+                'utility-description': 'Gunakan alat praktis ini untuk membalikkan teks, mengacak kata, atau menghapus baris duplikat.',
+                'intro-heading-utility': 'Utilitas Teks untuk Efisiensi',
+                'intro-text-utility': 'Alat <b>utilitas teks</b> ini dirancang untuk menyelesaikan tugas-tugas pengolahan teks yang spesifik dan sering kali rumit. Baik Anda ingin <b>membalikkan teks</b> untuk efek visual, <b>mengacak kata</b> untuk ide kreatif, atau <b>menghapus baris duplikat</b> dari daftar, semua bisa dilakukan dengan cepat dan akurat.',
+                'seo-text-utility': 'Alat ini sangat berguna bagi siapa pun yang sering bekerja dengan data teks dan daftar. Dengan alat ini, Anda bisa membersihkan dan mengatur data Anda tanpa harus menggunakan perangkat lunak yang kompleks.',
+                'privacy-note': 'Semua proses dilakukan di browser Anda, tidak ada data yang disimpan di server.',
+                'char-note': 'termasuk spasi dan tanda baca',
+                'faq-heading': 'Pertanyaan yang Sering Diajukan (FAQ)',
+                'faq1-q': 'Apakah alat ini gratis?',
+                'faq1-a': 'Ya, alat ini sepenuhnya gratis untuk digunakan. Anda bisa menggunakannya tanpa batas untuk kebutuhan pribadi atau profesional.',
+                'faq2-q': 'Apakah teks saya disimpan?',
+                'faq2-a': 'Tidak. Teks yang Anda masukkan hanya diproses di browser Anda dan tidak pernah disimpan di server mana pun. Privasi Anda terjamin.',
+                'faq3-q': 'Bagaimana cara kerja alat ini?',
+                'faq3-a': 'Alat ini menggunakan JavaScript untuk menghitung kata dan karakter secara real-time saat Anda mengetik. Ini tidak memerlukan koneksi internet untuk bekerja.',
+                'footer-text': '© 2024 Tool Teks Online. Semua Hak Dilindungi.',
+            },
+            'en': {
+                'header-title': 'Online Text Tools',
+                'nav-word-counter': 'Word Counter',
+                'nav-text-converter': 'Text Converter',
+                'nav-text-utility': 'Text Utilities',
+                'title': 'Word & Character Counter',
+                'tool-description': 'This free tool helps you count the number of words, characters, spaces, and paragraphs in your text. Simply paste your text below and get instant results.',
+                'intro-heading-word-counter': 'How to Use the Online Word & Character Counter',
+                'intro-text-word-counter': 'This <b>online word counter</b> is designed for speed and ease of use. With this free tool, you can instantly get key statistics about your writing.',
+                'seo-text-word-counter': 'This tool is highly useful for meeting platform limits and ensuring your articles have the optimal length for SEO.',
+                'word-label': 'Word Count:',
+                'char-label': 'Character Count:',
+                'sentence-label': 'Sentence Count:',
+                'paragraph-label': 'Paragraph Count:',
+                'space-label': 'Space Count:',
+                'read-time-label': 'Read Time:',
+                'placeholder': 'Enter your text here...',
+                'conversion-title': 'Text Conversion Tools',
+                'conversion-description': 'Quickly convert your text to uppercase, lowercase, or title case. Copy the converted text with a single click.',
+                'intro-heading-converter': 'Easy and Fast Text Conversion',
+                'intro-text-converter': 'This <b>text converter</b> tool is designed for quick and easy text formatting. Instantly convert text to <b>UPPERCASE</b>, <b>lowercase</b>, or <b>Title Case</b>.',
+                'seo-text-converter': 'With efficient conversion features, you can save time and boost productivity in writing and text management.',
+                'btn-uppercase': 'UPPERCASE',
+                'btn-lowercase': 'lowercase',
+                'btn-titlecase': 'Title Case',
+                'btn-copy': 'Copy Text',
+                'utility-title': 'Text Utilities',
+                'utility-description': 'Use these handy tools to reverse text, shuffle words, or remove duplicate lines.',
+                'intro-heading-utility': 'Utilitas Teks untuk Efisiensi',
+                'intro-text-utility': 'This <b>text utility</b> tool is designed to handle specific and often complex text-processing tasks. Whether you want to <b>reverse text</b> for a visual effect, <b>shuffle words</b> for a creative idea, or <b>remove duplicate lines</b> from a list, it can all be done quickly and accurately.',
+                'seo-text-utility': 'This tool is highly useful for anyone who works with text data and lists. With it, you can clean and organize your data without needing complex software.',
+                'privacy-note': 'All processing is done in your browser, no data is stored on our servers.',
+                'char-note': 'including spaces and punctuation',
+                'faq-heading': 'Frequently Asked Questions (FAQ)',
+                'faq1-q': 'Is this tool free?',
+                'faq1-a': 'Yes, this tool is completely free to use. You can use it without limits for personal or professional needs.',
+                'faq2-q': 'Is my text saved?',
+                'faq2-a': 'No. The text you enter is only processed in your browser and is never stored on any server. Your privacy is guaranteed.',
+                'faq3-q': 'How does this tool work?',
+                'faq3-a': 'This tool uses JavaScript to count words and characters in real-time as you type. It does not require an internet connection to work.',
+                'footer-text': '© 2024 Online Text Tools. All Rights Reserved.',
+            },
+        };
+
+        const updateContent = (lang) => {
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            textInput.placeholder = translations[lang]['placeholder'];
+        };
+
+        const showPage = (targetId) => {
+            pages.forEach(page => {
+                const isTargetPage = page.id === targetId;
+                page.classList.toggle('hidden', !isTargetPage);
+            });
+            // Show the corresponding guide content
+            document.querySelectorAll('#guide-content > div').forEach(guide => {
+                guide.classList.add('hidden');
+            });
+            const guideId = 'guide-' + targetId.replace('-page', '');
+            const guideElement = document.getElementById(guideId);
+            if (guideElement) {
+                guideElement.classList.remove('hidden');
+            }
+        };
+
+        // Automatic language detection on page load
+        const userLang = navigator.language || navigator.userLanguage;
+        const mainLang = userLang.split('-')[0];
+        
+        // Cek apakah pengguna berada di Indonesia atau tidak
+        const isIndonesia = mainLang === 'id';
+        
+        // Sembunyikan language switcher jika bukan di Indonesia
+        langToggle.style.display = isIndonesia ? 'flex' : 'none';
+        
+        const initialLang = isIndonesia ? 'id' : 'en';
+
+        if (isIndonesia) {
+            langIdBtn.classList.add('bg-white', 'shadow-sm');
+            langEnBtn.classList.remove('bg-white', 'shadow-sm');
+            updateContent('id');
+        } else {
+            langIdBtn.classList.remove('bg-white', 'shadow-sm');
+            langEnBtn.classList.add('bg-white', 'shadow-sm');
+            updateContent('en');
+        }
+
+        langIdBtn.addEventListener('click', () => {
+            langIdBtn.classList.add('bg-white', 'shadow-sm');
+            langEnBtn.classList.remove('bg-white', 'shadow-sm');
+            updateContent('id');
+        });
+
+        langEnBtn.addEventListener('click', () => {
+            langEnBtn.classList.add('bg-white', 'shadow-sm');
+            langIdBtn.classList.remove('bg-white', 'shadow-sm');
+            updateContent('en');
+        });
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const targetId = button.getAttribute('data-target');
+                showPage(targetId);
+            });
+        });
+        
+        // Menangani navigasi awal
+        window.addEventListener('load', () => {
+            showPage('word-counter-page'); // Halaman default
+        });
+
+
+        // Event listener untuk menghitung semua statistik (halaman Word Counter)
+        textInput.addEventListener('input', () => {
+            const text = textInput.value;
+            
+            // Hitung Karakter: Menggunakan total panjang string
+            const characterCount = text.length;
+            characterCountSpan.textContent = characterCount;
+
+            // Hitung Kata
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = text.trim() === '' ? 0 : words.length;
+            wordCountSpan.textContent = wordCount;
+
+            // Hitung Spasi
+            const spaceCount = (text.match(/ /g) || []).length;
+            spaceCountSpan.textContent = spaceCount;
+
+            // Hitung Kalimat
+            const sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+            const sentenceCount = sentences.length;
+            sentenceCountSpan.textContent = sentenceCount;
+
+            // Hitung Paragraf
+            const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim() !== '');
+            const paragraphCount = paragraphs.length;
+            paragraphCountSpan.textContent = paragraphCount > 0 ? paragraphCount : 0;
+            
+            // Hitung Waktu Baca
+            const minutes = Math.ceil(wordCount / WORDS_PER_MINUTE);
+            readTimeSpan.textContent = `${minutes}m`;
+        });
+        
+        // Fungsi untuk mengubah dan menyalin teks (halaman Text Converter)
+        uppercaseBtn.addEventListener('click', () => {
+            converterTextInput.value = converterTextInput.value.toUpperCase();
+        });
+        
+        lowercaseBtn.addEventListener('click', () => {
+            converterTextInput.value = converterTextInput.value.toLowerCase();
+        });
+        
+        titlecaseBtn.addEventListener('click', () => {
+            converterTextInput.value = converterTextInput.value.toLowerCase().split(' ').map((word) => {
+                if (word.length === 0) return '';
+                return word.charAt(0).toUpperCase() + word.slice(1);
+            }).join(' ');
+        });
+
+        copyBtn.addEventListener('click', () => {
+            converterTextInput.select();
+            document.execCommand('copy');
+        });
+
+        // Fungsi untuk utilitas teks (halaman Text Utility)
+        reverseBtn.addEventListener('click', () => {
+            utilityTextInput.value = utilityTextInput.value.split('').reverse().join('');
+        });
+
+        shuffleBtn.addEventListener('click', () => {
+            const words = utilityTextInput.value.split(/\s+/).filter(word => word.length > 0);
+            for (let i = words.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [words[i], words[j]] = [words[j], words[i]];
+            }
+            utilityTextInput.value = words.join(' ');
+        });
+
+        removeDuplicatesBtn.addEventListener('click', () => {
+            const lines = utilityTextInput.value.split('\n');
+            const uniqueLines = [...new Set(lines)];
+            utilityTextInput.value = uniqueLines.join('\n');
+        });
+    </script>
+</body>
+</html>
